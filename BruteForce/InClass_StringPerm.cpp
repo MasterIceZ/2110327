@@ -7,6 +7,10 @@ signed main(int argc, char *argv[]) {
 	cin >> n >> a >> b >> c;
 
 	string s = string(a, 'A') + string(b, 'B') + string(c, 'C');
+	if(s.size() < n) {
+		cout << "0\n";
+		return 0;
+	}
 	set<string> st;
 	do {
 		st.emplace(s.substr(0, n));
