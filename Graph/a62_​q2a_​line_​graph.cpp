@@ -7,6 +7,7 @@ const int MxN = 100010;
 
 vector<int> adj[MxN];
 bitset<MxN> visited;
+int deg[MxN];
 bool ok;
 
 void dfs(int u, int p) {
@@ -33,9 +34,10 @@ signed main(int argc, char *argv[]) {
     u++, v++;
     adj[u].emplace_back(v);
     adj[v].emplace_back(u);
+    deg[u]++, deg[v]++;
   }
   for(int i=1; i<=n; ++i) {
-    if(visited[i]) {
+    if(visited[i] || deg[i] > 1) {
       continue;
     }
     ok = true;
